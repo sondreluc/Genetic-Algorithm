@@ -18,7 +18,7 @@ var Genomes;
             return this.chromosomes;
         };
         BitVector.prototype.mutateChromosome = function (index) {
-            this.chromosomes[index] = (this.chromosomes[index] === 1 ? 0 : this.chromosomes[index]);
+            this.chromosomes[index] = (this.chromosomes[index] === 1 ? 0 : 1);
         };
         return BitVector;
     })(Genomes.AbstractGenome);

@@ -6,24 +6,22 @@ var GeneticOperators;
     var BinaryOperator = (function () {
         function BinaryOperator(crossoverRate, mutationRate) {
             if (crossoverRate === void 0) { crossoverRate = 0.25; }
-            if (mutationRate === void 0) { mutationRate = 0.1; }
+            if (mutationRate === void 0) { mutationRate = 0.5; }
             this.crossoverRate = crossoverRate;
             this.mutationRate = mutationRate;
         }
         BinaryOperator.prototype.crossover = function (parent1, parent2) {
-            console.log('Crossing over');
+            //console.log('Crossing over');
             var childVector = [];
             if (Math.random() <= 0.5) {
-                childVector = parent1.getChromosomes();
-                var otherParent = parent2.getChromosomes();
-                console.log('Parent1 selected');
+                childVector = parent1.getChromosomes().slice();
+                var otherParent = parent2.getChromosomes().slice();
             }
             else {
-                childVector = parent2.getChromosomes();
-                var otherParent = parent1.getChromosomes();
-                console.log('Parent2 selected');
+                childVector = parent2.getChromosomes().slice();
+                var otherParent = parent1.getChromosomes().slice();
             }
-            console.log(childVector, ' - before crossover');
+            //console.log(childVector, ' - before crossover');
             if (Math.random() <= this.crossoverRate) {
                 var randomIndex = Math.random() * childVector.length;
                 for (var i = 0; i < childVector.length; i++) {
@@ -38,6 +36,7 @@ var GeneticOperators;
             for (var i = 0; i < genome.getChromosomes().length; i++) {
                 if (Math.random() <= this.mutationRate) {
                     genome.mutateChromosome(i);
+                    break;
                 }
             }
         };

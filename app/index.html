@@ -17,7 +17,21 @@
   <div class="container">
 
       <h3>'Allo, 'Allo!</h3>
-      <div id="fitness"></div>
+      <button id="run">Run the Genetic-Algorithm</button>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Generation #</th>
+            <th>Avg fitness</th>
+            <th>Highest fitness</th>
+            <th>Population higest fitness</th>
+          </tr>
+          </thead>
+          <tbody id="result">
+
+          </tbody>
+        </table>
+
   </div>
 
   <!-- bower:js -->
@@ -29,13 +43,22 @@
   <script src="scripts/main.js"></script>
   <script src="scripts/FitnessEvaluators/IFitnessEvaluator.js"></script>
   <script src="scripts/FitnessEvaluators/OneMaxFitnessEvaluator.js"></script>
-  <script src="scripts/GeneticOperators/BinaryOperator.js"></script>
-  <script src="scripts/GeneticOperators/IGeneticOperator.js"></script>
   <script src="scripts/GeneticAlgorithms/AbstractGeneticAlgorithm.js"></script>
   <script src="scripts/GeneticAlgorithms/OneMax.js"></script>
+  <script src="scripts/GeneticOperators/BinaryOperator.js"></script>
+  <script src="scripts/GeneticOperators/IGeneticOperator.js"></script>
   <script src="scripts/Genomes/AbstractGenome.js"></script>
   <script src="scripts/Genomes/BitVector.js"></script>
+  <script src="scripts/SelectionMechanisms/FitnessProportionate.js"></script>
+  <script src="scripts/SelectionMechanisms/ISelectionMechanism.js"></script>
   <!-- endinject -->
+
+  <script>
+    $('#run').click(function(){
+      console.log('click');
+      test();
+    });
+  </script>
 </body>
 </html>
 

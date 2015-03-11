@@ -18,12 +18,12 @@ module SelectionMechanisms {
       });
 
       var selected = [];
-      for (var i = 0; i < this.populationSize; i++) {
-        var random = Math.random() * fitnessSum;
-        var iSum = 0;
+      for (var i = 0; i < 2; i++) {
+        var randomNumber = Math.random() * fitnessSum;
         var j = 0;
-        while (j < this.populationSize && iSum < random) {
-          iSum += iSum + adults[j].getFitness();
+        while (randomNumber > 0 && j < adults.length - 1) {
+          randomNumber -= adults[j].getFitness();
+          j++;
         }
         selected.push(adults[j]);
       }

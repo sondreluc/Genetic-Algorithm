@@ -5,7 +5,7 @@
 module FitnessEvaluators{
   export class OneMaxFitnessEvaluator implements IFitnessEvaluator {
 
-    constructor(private goalVector:Array<number> = undefined) {
+    constructor(private goalVector:number[] = undefined) {
     }
 
     calculateFitness(genome:Genomes.BitVector) {

@@ -5,23 +5,23 @@
 module GeneticOperators{
   export class BinaryOperator implements IGeneticOperator {
 
-    constructor(public crossoverRate:number = 0.25, public mutationRate:number = 0.1) {
+    constructor(public crossoverRate:number = 0.25, public mutationRate:number = 0.5) {
     }
 
     crossover(parent1:Genomes.BitVector, parent2:Genomes.BitVector):Genomes.BitVector {
-      console.log('Crossing over');
+      //console.log('Crossing over');
       var childVector = [];
 
       if (Math.random() <= 0.5) {
-        childVector = parent1.getChromosomes();
-        var otherParent = parent2.getChromosomes();
-        console.log('Parent1 selected');
+        childVector = parent1.getChromosomes().slice();
+        var otherParent = parent2.getChromosomes().slice();
+        //console.log('Parent1 selected');
       } else {
-        childVector = parent2.getChromosomes();
-        var otherParent = parent1.getChromosomes();
-        console.log('Parent2 selected');
+        childVector = parent2.getChromosomes().slice();
+        var otherParent = parent1.getChromosomes().slice();
+        //console.log('Parent2 selected');
       }
-      console.log(childVector, ' - before crossover');
+      //console.log(childVector, ' - before crossover');
 
       if (Math.random() <= this.crossoverRate) {
         var randomIndex = Math.random() * childVector.length;
@@ -39,6 +39,7 @@ module GeneticOperators{
       for(var i = 0; i < genome.getChromosomes().length; i++){
         if(Math.random() <= this.mutationRate){
           genome.mutateChromosome(i);
+          break;
         }
       }
     }

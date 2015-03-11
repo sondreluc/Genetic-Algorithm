@@ -21,10 +21,12 @@ module GeneticAlgorithms {
     mutationRate:number;
     populationSize:number;
     selectionMechanism:SelectionMechanisms.ISelectionMechanism;
+    elitism:boolean = true;
+    elitismOffset:number = 20;
 
 
     constructor(crossoverRate:number, fitnessEvaluator:FitnessEvaluators.IFitnessEvaluator, initialGeneration:Array<Genomes.AbstractGenome>,
-                mutationRate:number, populationSize:number, selectionMechanism:SelectionMechanisms.ISelectionMechanism, maxGenerations:number = 999) {
+                mutationRate:number, populationSize:number, selectionMechanism:SelectionMechanisms.ISelectionMechanism, maxGenerations:number = 300) {
 
       this.currentGeneration = initialGeneration;
       this.crossoverRate = crossoverRate;

@@ -14,7 +14,7 @@ module Genomes{
     }
 
     mutateChromosome(index:number):void {
-      this.chromosomes[index] = (this.chromosomes[index] === 1 ? 0 : this.chromosomes[index]);
+      this.chromosomes[index] = (this.chromosomes[index] === 1 ? 0 : 1);
     }
 
   }
